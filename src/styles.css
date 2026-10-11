@@ -1,0 +1,42 @@
+:root{--ink:#f1e9f5;--mute:#b3a6c0;--accent:#e8a64a;--glass:rgba(32,26,48,.55);--line:rgba(255,255,255,.12)}
+[data-theme=warm]{--accent:#f0b35c;--glass:rgba(52,32,28,.58);--ink:#fbeedd}
+[data-theme=cool]{--accent:#8fb4ff;--glass:rgba(24,30,52,.58);--ink:#e8eefc}
+*{box-sizing:border-box}html,body,#root{height:100%;margin:0}
+body{font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:#14121f}
+.room{position:relative;height:100%;overflow:hidden}
+.wall,.dim{position:absolute;inset:-20px}.dim{background:#000;pointer-events:none}
+.glass{position:absolute;background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.top{top:16px;left:16px;right:16px;display:flex;gap:14px;align-items:center;padding:10px 16px}
+.name{font-family:Fraunces,serif;font-size:1.15rem;font-weight:500;margin-right:auto}
+.clock{font-variant-numeric:tabular-nums}
+.people{top:84px;left:16px;padding:12px 16px;font-size:.9rem;display:grid;gap:6px}
+.panel{top:84px;right:16px;width:min(340px,calc(100% - 32px));padding:18px;max-height:calc(100% - 170px);overflow:auto}
+.dock{bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;align-items:center;padding:8px 12px;max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+.mini{font-size:.85rem;color:var(--mute);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+button,.filebtn{font:inherit;font-weight:600;background:var(--accent);color:#1d1626;border:1px solid transparent;border-radius:999px;padding:7px 14px;cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,input:focus-visible,.filebtn:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+button.link{background:none;color:var(--ink);padding:4px 0;text-align:left;border-radius:6px}.x{padding:2px 8px}
+.filebtn{display:inline-block;margin:12px 0}
+.big{font-family:Fraunces,serif;font-size:3.6rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.phase{margin:0 0 4px;font-family:Fraunces,serif;font-size:1.1rem}.muted{color:var(--mute);font-size:.85rem;margin:2px 0 8px}
+.err{color:#ffb3b3;font-size:.85rem}
+.bar{height:5px;background:var(--line);border-radius:9px;margin:10px 0 14px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
+.row{display:flex;gap:8px;align-items:center;margin:10px 0}.row.wrap{flex-wrap:wrap}.between{justify-content:space-between}.small{font-size:.85rem}
+input[type=range]{width:100%;accent-color:var(--accent)}label{display:block;margin:12px 0;font-size:.9rem}
+input[type=number]{width:60px;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:4px}
+.queue{list-style:none;padding:0;margin:0}.queue li{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:4px 0}.queue .on button.link{color:var(--accent)}
+@media(max-width:640px){.people{display:none}.panel{top:76px;right:12px;left:12px;width:auto}.top{left:12px;right:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.card{position:relative;top:50%;left:50%;transform:translate(-50%,-50%);width:min(380px,calc(100% - 32px));padding:24px}
+.card.wide{width:min(480px,calc(100% - 32px));max-height:90%;overflow:auto}
+.card label input,.card .row input:not([type=range]){display:block;width:100%;margin-top:4px;background:rgba(0,0,0,.25);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit}
+.card .row input{margin-top:0}.lobbybg{background:linear-gradient(180deg,#2a2140,#4a3560 55%,#8a5a5a)}
+.toast{top:84px;left:50%;transform:translateX(-50%);padding:8px 16px;z-index:5;font-size:.9rem}
+.center{position:absolute;top:50%;left:50%}
+.callbox{left:16px;bottom:84px;width:min(300px,calc(100% - 32px));padding:10px;display:grid;gap:8px}
+.callframe{height:0;overflow:hidden;border-radius:12px}.live .callframe{height:170px}
+@media(max-width:640px){.callbox{bottom:120px}}
+select{background:rgba(0,0,0,.25);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:7px 10px;font:inherit;max-width:180px}
+.queue .mini{max-width:150px}.x{font-size:.8rem}

@@ -1,0 +1,15 @@
+name = "lofi-haven"
+main = "server/index.js"
+compatibility_date = "2025-09-01"
+
+[[durable_objects.bindings]]
+name = "ROOM"
+class_name = "Room"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Room"]
+
+[vars]
+ALLOWED_ORIGIN = ""   # after deploying to Vercel set to e.g. "https://lofi-haven.vercel.app"
+JITSI_DOMAIN = ""   # only for a self-hosted Jitsi, e.g. "jitsi.example.com"
